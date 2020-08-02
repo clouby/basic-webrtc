@@ -12,7 +12,7 @@ app.register(require('@guivic/fastify-socket.io'));
 // Include template engine
 app.register(require('point-of-view'), {
 	engine: {
-		ejs: require('ejs')
+		ejs: require('pug')
 	},
 	root: path.join(__dirname, 'view')
 });
@@ -29,17 +29,17 @@ app.get('/room', (_request, reply) => {
 
 app.get('/room/:roomId', (request, reply) => {
 	const { roomId } = request.params;
-	return reply.view('/app.ejs', { roomId });
+	return reply.view('/app.pug', { roomId });
 });
 
 app.ready((_error) => {
 	app.io.on('connection', (socket) => {
 		socket.on('join-room', (roomId, userId) => {
 			socket.join(roomId);
-			socket.to(roomId).broadcast.emit('user-connected', userId);
+			socket.to(roomId).emit('user-connected', userId);
 
 			socket.on('disconnect', () => {
-				socket.to(roomId).broadcast.emit('user-disconnected', userId);
+				socket.to(roomId).emit('user-disconnected', userId);
 			});
 		});
 	});

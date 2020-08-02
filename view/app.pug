@@ -1,0 +1,12 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Practice - WebRTC
+        link(rel="stylesheet", href="/style.css")
+    body
+        #video-grid
+        script ROOM_ID="#{roomId}"
+        script(src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer)
+        script(src="/socket.io/socket.io.js" defer)
+        script(src="/app.js" defer)
