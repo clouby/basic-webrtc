@@ -12,7 +12,7 @@ app.register(require('@guivic/fastify-socket.io'));
 // Include template engine
 app.register(require('point-of-view'), {
 	engine: {
-		ejs: require('pug')
+		pug: require('pug')
 	},
 	root: path.join(__dirname, 'view')
 });
