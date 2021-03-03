@@ -15,7 +15,7 @@
 		"fastify-static": "^3.2.0",
 		"middie": "^5.1.0",
 		"point-of-view": "^4.2.0",
-		"pug": "^3.0.0",
+		"pug": "^3.0.1",
 		"socket.io": "^2.3.0",
 		"uuid": "^8.3.0"
 	},
